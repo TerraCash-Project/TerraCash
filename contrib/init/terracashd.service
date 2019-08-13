@@ -1,0 +1,26 @@
+[Unit]
+Description=TerraCash's distributed currency daemon
+After=network.target
+
+[Service]
+User=terracash
+Group=terracash
+
+Type=forking
+PIDFile=/var/lib/terracashd/terracashd.pid
+
+ExecStart=/usr/bin/terracashd -daemon -pid=/var/lib/terracashd/terracashd.pid \
+          -conf=/etc/terracash/terracash.conf -datadir=/var/lib/terracashd
+
+ExecStop=-/usr/bin/terracash-cli -conf=/etc/terracash/terracash.conf \
+         -datadir=/var/lib/terracashd stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target

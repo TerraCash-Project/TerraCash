@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=TerraCash
+Comment=TerraCash P2P Cryptocurrency
+Exec=terracash-qt %u
+Terminal=false
+Type=Application
+Icon=terracash128
+MimeType=x-scheme-handler/terracash;
+Categories=Office;Finance;
+Name[en_US]=terracash-qt.desktop
